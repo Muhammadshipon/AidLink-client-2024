@@ -7,7 +7,7 @@ const Navbar = () => {
 <div className="navbar bg-base-100 ">
   <div className="flex-1">
    
-    <a className="btn btn-ghost text-md md:text-2xl -ml-3"><img className="w-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4O3OmXmP3LomwCwLaQ_sEMiAmrLa1uAO18KSqyHwrLgGrvByWVqcCIgwiO3RMmunFQe8&usqp=CAU" alt="" /><h1 className="-ml-3 font-extrabold font-serif italic text-cyan-400">AidLink</h1></a>
+    <a className="btn btn-ghost text-md md:text-4xl -ml-3"><img className="w-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4O3OmXmP3LomwCwLaQ_sEMiAmrLa1uAO18KSqyHwrLgGrvByWVqcCIgwiO3RMmunFQe8&usqp=CAU" alt="" /><h1 className="-ml-3 font-extrabold font-serif italic text-cyan-400">AidLink</h1></a>
   </div>
 
   <div className="mr-10 flex flex-col md:flex-row font-semibold text-sm md:text-md text-cyan-600 gap-5">
@@ -50,7 +50,7 @@ const Navbar = () => {
           <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
         </div>
       </div>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 z-50">
         <li><Link>Add Volunteer Post</Link></li>
         <li><Link>Manage My Post</Link></li>
         <li><Link>My Volunteer Requested Post</Link></li>
