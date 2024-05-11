@@ -1,8 +1,16 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Navbar = () => {
-           
+  const {user,setUser,logOutUser} = useContext(AuthContext);  
+  const handleLogOut =()=>{
+    logOutUser()
+    .then(result=>{
+      setUser(result.user)
+    })
+  }
   return (
 <div className="navbar bg-base-100 ">
   <div className="flex-1">
@@ -39,24 +47,34 @@ const Navbar = () => {
 </label>
       </div>
 
-
-
-
-     <Link><button className="btn bg-cyan-400 text-white hover:bg-white hover:text-cyan-500">Login</button></Link>
-    
-    <div className="dropdown dropdown-end">
+{
+  user?
+  <>
+  <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
         </div>
       </div>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 z-50">
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52 z-50">
         <li><Link>Add Volunteer Post</Link></li>
         <li><Link>Manage My Post</Link></li>
         <li><Link>My Volunteer Requested Post</Link></li>
-        <li><a>Logout</a></li>
+        <li><Link  onClick={handleLogOut} to={"/"}>Logout</Link></li>
+
+       
       </ul> 
     </div>
+  </> :
+  <>
+   <Link to={'/login'}><button className="btn bg-cyan-400 text-white hover:bg-white hover:text-cyan-500">Login</button></Link>
+  </>
+}
+
+
+    
+    
+    
   </div>
 </div>
   );
