@@ -44,7 +44,6 @@ const LogIn = () => {
       console.log(result.user);
       Swal.fire({
         title: "Login Successfully",
-        text: "Your Registration have done Successfully",
         icon: "success"
       });
 
@@ -67,10 +66,19 @@ const LogIn = () => {
     googleLogIn()
     .then(result=>{
       console.log(result.user);
+      Swal.fire({
+        title: "Login Successfully",
+        icon: "success"
+      });
       navigate(location?.state? location.state : "/")
     })
     .catch(error=>{
-      console.log(error.message)
+      console.log(error.message);
+      Swal.fire({
+        title: "Failed to login",
+        text:'Please try again after some time',
+        icon: "error"
+      });
     })
   }
 
@@ -78,10 +86,19 @@ const LogIn = () => {
     githubLogIn()
   .then(result=>{
     console.log(result.user);
+    Swal.fire({
+      title: "Login Successfully",
+      icon: "success"
+    });
     navigate(location?.state? location.state : "/")
   })
   .catch(error=>{
     console.log(error.message);
+    Swal.fire({
+      title: "Failed to login",
+      text:'Please try again after some time',
+      icon: "error"
+    });
    
   })
   }

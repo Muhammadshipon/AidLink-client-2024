@@ -5,6 +5,7 @@ import NeedVolunteer from "../Pages/NeedVolunteer";
 import ErrorPage from "../Pages/ErrorPage";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'/need-volunteer',
-        element:<NeedVolunteer></NeedVolunteer>
+        element:<PrivateRoute><NeedVolunteer></NeedVolunteer></PrivateRoute>
       },
       {
         path:'/login',
