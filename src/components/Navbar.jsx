@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
   const {user,setUser,logOutUser} = useContext(AuthContext);  
@@ -64,17 +64,17 @@ const Navbar = () => {
 </label>
       </div>
 
-{
+{ 
   user?
   <>
   <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+      <div tabIndex={0} role="button" data-tooltip-id="my-tooltip" className="btn  btn-ghost btn-circle avatar " data-tooltip-content={user.displayName}>
         <div className="w-10 rounded-full">
           <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
         </div>
       </div>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52 z-50">
-        <li><Link>Add Volunteer Post</Link></li>
+        <li><Link to={'/add-volunteer-post'}>Add Volunteer Post</Link></li>
         <li><Link>Manage My Post</Link></li>
         <li><Link>My Volunteer Requested Post</Link></li>
         <li><Link  onClick={handleLogOut} to={"/"}>Logout</Link></li>
@@ -93,6 +93,7 @@ const Navbar = () => {
     
     
   </div>
+  <Tooltip id="my-tooltip" place="left" />
 </div>
   );
 };

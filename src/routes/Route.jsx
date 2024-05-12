@@ -6,6 +6,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import AddVolunteer from "../Pages/AddVolunteer";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: '/register',
         element:<Register></Register>
+      },
+      {
+        path:'/add-volunteer-post',
+        element:<AddVolunteer></AddVolunteer>
       }
     ]
   },
