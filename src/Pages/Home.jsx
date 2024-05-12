@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Banner from "../components/Banner";
 import VolunteerNeedsNow from "../components/VolunteerNeedsNow";
 
@@ -16,6 +17,9 @@ const Home = () => {
       <div className="flex justify-center items-center">
       <VolunteerNeedsNow></VolunteerNeedsNow>
       </div>
+     <div className="  text-center ">
+    <Link to={'/need-volunteer'}> <button className="btn my-6 px-10 font-bold">See All</button></Link>
+     </div>
     </section>
      
     </div>
