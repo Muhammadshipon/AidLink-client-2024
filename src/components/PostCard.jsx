@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const PostCard = ({post}) => {
-  const {thumbnail,postTitle,
+  const {_id,thumbnail,postTitle,
     category,deadline} = post
   return (
     <div className="max-w-xs rounded-md shadow-md ">
@@ -14,7 +15,9 @@ const PostCard = ({post}) => {
           <p>Deadline: {new Date(deadline).toLocaleDateString()}</p>
         </div>
       </div>
-      <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-cyan-400 text-gray-900 text-gray-900 text-gray-900 text-gray-900 hover:bg-cyan-600">View Details</button>
+   <Link to={`/view-details-post/${_id}`}>
+   <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-cyan-400 text-gray-900 text-gray-900 text-gray-900 text-gray-900 hover:bg-cyan-600">View Details</button>
+   </Link>
     </div>
   </div>
   );

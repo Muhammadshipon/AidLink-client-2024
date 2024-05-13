@@ -54,18 +54,8 @@ const AddVolunteer = () => {
     }
   
 
-    // fetch('https://eco-chic-crafts-server.vercel.app/crafts',{
-    //   method:'POST',
-    //   headers:{
-    //     'content-type':'application/json'
-    //   },
-    //   body:JSON.stringify(newItem)
-    // }).then(res=>res.json())
-    // .then(data=>{
-    //   console.log(data);
-    //   
-    //  
-    // })
+   
+   
   }
   return (
     <div className="flex justify-center items-center" data-aos="fade-up"  data-aos-duration="1000">

@@ -2,8 +2,9 @@
 
 const Footer = () => {
   return (
-    <footer>
-    <footer className="footer border-t-2 p-10 md:py-5 border-white border-dashed footer-center pb-8 bg-gray-400 text-gray-700  rounded">
+    <footer className="bg-gray-400">
+   <div className="max-w-7xl mx-auto">
+   <footer className="footer border-t-2 p-10 md:py-5 border-white border-dashed footer-center pb-8  text-gray-700  rounded">
   <div className=" flex justify-between md:px-10 gap-5">
    <div className="w-[50%]">
    <a className=" text-3xl font-serif font-extrabold text-cyan-600 pb-5 inline-block  italic"><p>AidLink</p></a>
@@ -60,6 +61,7 @@ const Footer = () => {
     <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
   </aside>
 </footer>
+   </div>
 </footer>
   );
 };
