@@ -26,7 +26,7 @@ const AddVolunteer = () => {
     const postTitle = form.postTitle.value;
     const thumbnail = form.thumbnail.value;
     const location = form.location.value;
-    const numOfVolunteerNeeded = form.numOfVolunteerNeeded.value;
+    const numOfVolunteerNeeded = parseInt(form.numOfVolunteerNeeded.value);
     const deadline = startDate;
     const category = form.category.value;
     const description = form.description.value;
@@ -38,7 +38,7 @@ const AddVolunteer = () => {
 
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/posts`,
+        `http://localhost:9000/posts`,
         newPost
       )
       console.log(data)
@@ -57,6 +57,8 @@ const AddVolunteer = () => {
    
    
   }
+
+  
   return (
     <div className="flex justify-center items-center" data-aos="fade-up"  data-aos-duration="1000">
     <form onSubmit={handleAddVolunteer} className="md:w-2/3 px-5 mb-10">
@@ -79,7 +81,7 @@ const AddVolunteer = () => {
     </div>
       <div>
     <label className="block mb-2 text-sm">No. of volunteers needed</label>
-    <input required type="text" name="numOfVolunteerNeeded"  placeholder="No. of volunteers needed" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-slate-100  text-gray-600" />
+    <input required type="number" name="numOfVolunteerNeeded"  placeholder="No. of volunteers needed" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-slate-100  text-gray-600" />
     </div>
       <div>
     <label className="block mb-2 text-sm">Deadline</label>

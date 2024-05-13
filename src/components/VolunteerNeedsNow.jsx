@@ -7,7 +7,7 @@ const VolunteerNeedsNow = () => {
   const [posts,setPost] = useState([]);
   useEffect(()=>{
     const getData = async()=>{
-      const {data} = await axios('http://localhost:5000/posts')
+      const {data} = await axios('http://localhost:9000/posts')
       setPost(data);
     }
    getData();
