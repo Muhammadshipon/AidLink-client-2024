@@ -1,14 +1,26 @@
 
 import { useContext } from "react";
-import { Link, ScrollRestoration, useLoaderData } from "react-router-dom";
+import { ScrollRestoration, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const ViewDetailsPost = () => {
+  const navigate = useNavigate();
   const {user} = useContext(AuthContext);
   const post = useLoaderData();
   const  {_id,postTitle,thumbnail,location,numOfVolunteerNeeded,deadline,category,description,ownerName,ownerEmail} = post 
-  
+  const handleBeAVolunteer=id=>{
+    if(numOfVolunteerNeeded===0){
+      return  Swal.fire({
+        title: "Not Available",
+        text: "Already Fill up this post request",
+        icon: "error"
+      });
+    
+    }
+    return navigate(`/be-a-volunteer/${id}`);
+  }
   return (
     <div className="bg-base-100" >
     <div className="hero min-h-screen ">
@@ -29,9 +41,9 @@ const ViewDetailsPost = () => {
     </div>
    
       <p className="py-6">{description}</p>
-      <Link to={`/be-a-volunteer/${_id}`}>
-      <button disabled={ownerEmail===user.email} className="btn bg-cyan-500 text-white font-bold">Be a Volunteer</button>
-      </Link>
+     
+      <button onClick={()=>handleBeAVolunteer(_id)} disabled={ownerEmail===user.email} className="btn bg-cyan-500 text-white font-bold">Be a Volunteer</button>
+     
      
     </div>
   </div>

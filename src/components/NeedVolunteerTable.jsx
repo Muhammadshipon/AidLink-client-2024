@@ -1,10 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const NeedVolunteerTable = ({post}) => {
+  const navigate = useNavigate();
   const {_id,thumbnail,postTitle,location,
-    category,deadline} = post;
+    category,deadline,numOfVolunteerNeeded
+  } = post;
     
+  const handleBeAVolunteer=id=>{
+    if(numOfVolunteerNeeded===0){
+      return  Swal.fire({
+        title: "Not Available",
+        text: "Already Fill up this post request",
+        icon: "error"
+      });
+    
+    }
+    return navigate(`/be-a-volunteer/${id}`);
+  }
   return (
     <tr>
         
@@ -27,9 +41,17 @@ const NeedVolunteerTable = ({post}) => {
           <td>
             {location}
           </td>
+          <td className="text-center">
+            {numOfVolunteerNeeded
+             }
+          </td>
           <th>
-          {/* <Link to={`/craft-details/${craft._id}`}></Link> */}
+          
          <Link to={`/view-details-post/${_id}`}> <button className="btn bg-amber-500 text-white" >Details</button></Link>
+          </th>
+          <th>
+          
+          <button onClick={()=>handleBeAVolunteer(_id)}  className="btn bg-cyan-500 text-white" >Be A Volunteer</button>
           </th>
          
         </tr>
