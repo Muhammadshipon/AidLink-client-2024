@@ -1,13 +1,31 @@
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
+import axios from "axios";
 
 
 const NeedVolunteerCard = ({post}) => {
+  const {user} = useContext(AuthContext);
+  const [requests,setRequests] =useState([]); 
   const navigate = useNavigate();
   const {_id,thumbnail,postTitle,
     category,deadline,numOfVolunteerNeeded} = post;
 
+
+    useEffect(()=>{
+      const getData = async()=>{
+        const {data} = await axios(`http://localhost:9000/request?email=${user?.email}`)
+        setRequests(data);
+      }
+     getData();
+    },[])
+
+
+
     const handleBeAVolunteer=id=>{
+
+      
       if(numOfVolunteerNeeded===0){
         return  Swal.fire({
           title: "Not Available",
@@ -16,8 +34,21 @@ const NeedVolunteerCard = ({post}) => {
         });
       
       }
+      if(requests.length>0){
+        const match =requests.find(req=>req.postId === id);
+        if(match){
+          return Swal.fire({
+            title: "Already Requested",
+            text: "You have Already requested on this post ",
+            icon: "error"
+          });
+        }
+        }
+
       return navigate(`/be-a-volunteer/${id}`);
     }
+
+    
   return (
     <div className="max-w-xs rounded-md shadow-md mx-auto ">
     <img src={thumbnail} alt="" className="object-cover object-center w-full rounded-t-md h-72" />

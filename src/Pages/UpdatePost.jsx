@@ -6,13 +6,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const UpdatePost = () => {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const post = useLoaderData();
-  const { _id, postTitle, thumbnail, location, numOfVolunteerNeeded, deadline, category, description } = post;
+  const { _id, postTitle, thumbnail, location, numOfVolunteerNeeded, category, description } = post;
 
   const handleUpdatePost = async (e)=>{
     e.preventDefault();
@@ -65,6 +66,9 @@ const UpdatePost = () => {
 
   return (
     <div onSubmit={handleUpdatePost} className="flex justify-center items-center" data-aos="fade-up" data-aos-duration="1000">
+       <Helmet>
+      <title>AidLink || Update</title>
+      </Helmet>
       <form className="md:w-2/3 px-5 mb-10">
         {/* container  */}
         <h1 className="text-3xl font-bold text-center my-5 text-yellow-400">Update Your Need Volunteer Post</h1>

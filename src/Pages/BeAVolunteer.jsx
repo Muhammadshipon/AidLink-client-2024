@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const BeAVolunteer = () => {
   const navigate = useNavigate();
@@ -52,6 +53,9 @@ const BeAVolunteer = () => {
 
   return (
     <div className="flex justify-center items-center" data-aos="fade-up" data-aos-duration="1000">
+      <Helmet>
+      <title>AidLink || Be A Volunteer</title>
+      </Helmet>
       <form onSubmit={handleVolunteerRequest} className="md:w-2/3 px-5 mb-10">
         {/* container  */}
         <h1 className="text-3xl font-bold text-center my-5 text-yellow-400">Add Your Request to Be A Volunteer</h1>

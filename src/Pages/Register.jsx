@@ -5,6 +5,7 @@ import { IoMdEyeOff } from "react-icons/io";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const {createUser} = useContext(AuthContext);
@@ -79,7 +80,9 @@ const Register = () => {
   }
   return (
     <div className="flex justify-center item-center px-5">
-    
+     <Helmet>
+      <title>AidLink || Register</title>
+      </Helmet>
 
       <div  className="w-full  mb-14 max-w-md p-4 mt-10 rounded-3xl shadow-xl border-2 border-gray-400 sm:p-8 ">
 	<h2 className="mb-3 text-3xl font-semibold text-center ">Create your account</h2>

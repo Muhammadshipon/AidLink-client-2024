@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import NeedVolunteerTable from '../components/NeedVolunteerTable';
 import { ScrollRestoration } from 'react-router-dom';
 import NeedVolunteerCard from '../components/NeedVolunteerCard';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -79,6 +80,9 @@ const NeedVolunteer = () => {
 
 return(
   <div className='my-16'>
+     <Helmet>
+      <title>AidLink || Need Volunteer</title>
+      </Helmet>
      <h1 className="text-4xl font-bold text-center my-10 text-yellow-400">All Need Volunteer Posts</h1>
   <div>
     <div className='flex  flex-col md:flex-row justify-center items-center gap-5 '>

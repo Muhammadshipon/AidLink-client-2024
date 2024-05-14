@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import Banner from "../components/Banner";
 import VolunteerNeedsNow from "../components/VolunteerNeedsNow";
+import { Helmet } from "react-helmet-async";
 
 
 const Home = () => {
   return (
     <div>
+       <Helmet>
+      <title>AidLink</title>
+      </Helmet>
       {/* banner  */}
     <div>
     <Banner></Banner>

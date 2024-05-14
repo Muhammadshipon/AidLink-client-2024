@@ -5,6 +5,7 @@ import 'react-tabs/style/react-tabs.css';
 import { AuthContext } from '../provider/AuthProvider';
 import MyNeedVolunteer from '../components/MyNeedVolunteer';
 import MyVolunteerRequest from '../components/MyVolunteerRequest';
+import { Helmet } from 'react-helmet-async';
 
 const ManageMyPost = () => {
   const {user} = useContext(AuthContext);
@@ -31,6 +32,9 @@ const ManageMyPost = () => {
   console.log(requests)
   return (
    <div>
+     <Helmet>
+      <title>AidLink || Manage My Post</title>
+      </Helmet>
    <h1 className="text-3xl font-bold text-center my-10 text-yellow-400">Manage My Post</h1>
 <Tabs>
     <TabList>
@@ -39,33 +43,43 @@ const ManageMyPost = () => {
     </TabList>
 
     <TabPanel>
-    <table className="table mb-10">
-    {/* head */}
-    <thead>
-      <tr>
-        
-        <th>Post title</th>
-        <th>DeadLine</th>
-        <th>Location</th>
-        <th>Update</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      {/* row 1 */}
 
       {
-      posts.map(post=><MyNeedVolunteer
-        posts={posts}
-         setPosts={setPosts}
-        post={post} key={post._id}></MyNeedVolunteer>)
-     }
+        posts.length!==0?
+        <table className="table mb-10">
      
-    </tbody>
-   
-   
+        <thead>
+          <tr>
+            
+            <th>Post title</th>
+            <th>DeadLine</th>
+            <th>Location</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+       
+    
+          {
+          
+          posts.map(post=><MyNeedVolunteer
+            posts={posts}
+             setPosts={setPosts}
+            post={post} key={post._id}></MyNeedVolunteer>) 
+          
+         }
+         
+        </tbody>
+       
+       
+    
+      </table>
+        : <p className='my-5'>No Post Available</p>
 
-  </table>
+        
+      }
+   
 
 
 
@@ -74,6 +88,8 @@ const ManageMyPost = () => {
     
     </TabPanel>
     <TabPanel>
+   {
+    requests.length !== 0?
     <table className="table mb-10">
     {/* head */}
     <thead>
@@ -100,7 +116,8 @@ const ManageMyPost = () => {
    
    
 
-  </table>
+  </table> : <p className='my-5'>No Request Available</p>
+   }
    
     </TabPanel>
   </Tabs>

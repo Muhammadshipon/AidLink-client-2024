@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, ScrollRestoration, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const LogIn = () => {
@@ -106,7 +107,9 @@ const LogIn = () => {
 
   return (
     <div className="flex justify-center items-center mb-16 px-5">
-
+ <Helmet>
+      <title>AidLink || Login</title>
+      </Helmet>
       <div className="flex flex-col max-w-md p-6 rounded-3xl sm:p-10 shadow-xl border-2 border-gray-400 mt-20">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Log in</h1>

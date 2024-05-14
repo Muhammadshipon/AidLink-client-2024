@@ -1,16 +1,29 @@
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ScrollRestoration, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 
 const ViewDetailsPost = () => {
   const navigate = useNavigate();
+  const [requests,setRequests] =useState([]); 
   const {user} = useContext(AuthContext);
   const post = useLoaderData();
   const  {_id,postTitle,thumbnail,location,numOfVolunteerNeeded,deadline,category,description,ownerName,ownerEmail} = post 
+  
+  useEffect(()=>{
+    const getData = async()=>{
+      const {data} = await axios(`http://localhost:9000/request?email=${user?.email}`)
+      setRequests(data);
+    }
+   getData();
+  },[])
+  
   const handleBeAVolunteer=id=>{
+   
     if(numOfVolunteerNeeded===0){
       return  Swal.fire({
         title: "Not Available",
@@ -19,10 +32,23 @@ const ViewDetailsPost = () => {
       });
     
     }
+    if(requests.length>0){
+      const match =requests.find(req=>req.postId === id);
+      if(match){
+        return Swal.fire({
+          title: "Already Requested",
+          text: "You have Already requested on this post ",
+          icon: "error"
+        });
+      }
+      }
     return navigate(`/be-a-volunteer/${id}`);
   }
   return (
     <div className="bg-base-100" >
+       <Helmet>
+      <title>AidLink || Details</title>
+      </Helmet>
     <div className="hero min-h-screen ">
   <div className="hero-content flex-col lg:flex-row-reverse gap-24">
     <img src={thumbnail} className="w-full md:w-[40%] md:h-[400px] rounded-lg shadow-2xl" />
