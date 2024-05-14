@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -62,11 +63,13 @@ const MyNeedVolunteer = ({post,posts,setPosts}) => {
             {location}
           </td>
           <th>
-          {/* <Link to={`/craft-details/${craft._id}`}></Link> */}
+          <Link to={`/update-post/${_id}`}>
           <button className="btn btn-info btn-xs text-white">Update</button>
+          </Link>
+         
           </th>
           <th>
-          {/* <Link to={`/craft-details/${craft._id}`}></Link> */}
+        
           <button onClick={()=>handleDeletePost(_id)} className="btn btn-error btn-xs text-white">delete</button>
           </th>
         </tr>

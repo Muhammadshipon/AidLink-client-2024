@@ -5,8 +5,10 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddVolunteer = () => {
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
    const {user} = useContext(AuthContext);
    console.log(user)
@@ -48,7 +50,7 @@ const AddVolunteer = () => {
             icon: "success"
           });
           form.reset();
-      // navigate('/my-posted-jobs')
+      navigate('/manage-my-post')
     } catch (err) {
       console.log(err)
     }

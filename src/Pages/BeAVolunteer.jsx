@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,6 +8,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const BeAVolunteer = () => {
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const post = useLoaderData();
   const { _id, postTitle, thumbnail, location, numOfVolunteerNeeded, deadline, category, description, ownerName, ownerEmail } = post;
@@ -37,7 +38,7 @@ const BeAVolunteer = () => {
         icon: "success"
       });
       form.reset();
-      // navigate('/my-posted-jobs')
+      navigate('/manage-my-post')
     } catch (err) {
       console.log(err)
     }
@@ -71,8 +72,8 @@ const BeAVolunteer = () => {
             </div>
             <div>
               <label className="block mb-2 text-sm">No. of volunteers needed</label>
-              <input defaultValue={numOfVolunteerNeeded} disabled required type="number
-    " name="numOfVolunteerNeeded" placeholder="No. of volunteers needed" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-slate-100  text-gray-600" />
+              <input defaultValue={numOfVolunteerNeeded} disabled required type="number"
+     name="numOfVolunteerNeeded" placeholder="No. of volunteers needed" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-slate-100  text-gray-600" />
             </div>
             <div>
               <label className="block mb-2 text-sm">Deadline</label>

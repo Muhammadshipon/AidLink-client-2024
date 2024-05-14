@@ -10,6 +10,7 @@ import AddVolunteer from "../Pages/AddVolunteer";
 import ViewDetailsPost from "../Pages/ViewDetailsPost";
 import BeAVolunteer from "../Pages/BeAVolunteer";
 import ManageMyPost from "../Pages/ManageMyPost";
+import UpdatePost from "../Pages/UpdatePost";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ export const router = createBrowserRouter([
         element:<PrivateRoute><BeAVolunteer></BeAVolunteer></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:9000/posts/${params.id}`)
       
+      },
+      {
+        path:"/update-post/:id",
+        element:<PrivateRoute><UpdatePost></UpdatePost></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:9000/posts/${params.id}`)     
       },
       {
         path:'/manage-my-post',
