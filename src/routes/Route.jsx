@@ -24,7 +24,8 @@ export const router = createBrowserRouter([
       },
       {
         path:'/need-volunteer',
-        element:<PrivateRoute><NeedVolunteer></NeedVolunteer></PrivateRoute>
+        element:<NeedVolunteer></NeedVolunteer>
+        
       },
       {
         path:'/login',

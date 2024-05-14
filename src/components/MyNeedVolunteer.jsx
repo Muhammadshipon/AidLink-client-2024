@@ -1,3 +1,6 @@
+import { Fab, IconButton } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -64,13 +67,17 @@ const MyNeedVolunteer = ({post,posts,setPosts}) => {
           </td>
           <th>
           <Link to={`/update-post/${_id}`}>
-          <button className="btn btn-info btn-xs text-white">Update</button>
+          <button > <Fab size="small" color="secondary" aria-label="edit">
+        <EditIcon />
+      </Fab></button>
           </Link>
          
           </th>
           <th>
         
-          <button onClick={()=>handleDeletePost(_id)} className="btn btn-error btn-xs text-white">delete</button>
+          <button onClick={()=>handleDeletePost(_id)} ><IconButton aria-label="delete">
+        <DeleteIcon />
+      </IconButton></button>
           </th>
         </tr>
   );

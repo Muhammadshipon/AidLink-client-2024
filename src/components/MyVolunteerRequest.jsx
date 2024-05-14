@@ -1,3 +1,6 @@
+
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -67,7 +70,9 @@ const MyVolunteerRequest = ({request,requests,setRequests}) => {
           </td>
           <th>
           {/* <Link to={`/craft-details/${craft._id}`}></Link> */}
-          <button onClick={()=>handleCancelRequest(_id)} className="btn btn-warning btn-xs text-white">Cancel</button>
+          <button onClick={()=>handleCancelRequest(_id)} ><IconButton aria-label="delete">
+        <DeleteIcon />
+      </IconButton></button>
           </th>
          
         </tr>
