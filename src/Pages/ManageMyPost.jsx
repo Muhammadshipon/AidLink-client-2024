@@ -39,7 +39,7 @@ const ManageMyPost = () => {
     </TabList>
 
     <TabPanel>
-    <table className="table">
+    <table className="table mb-10">
     {/* head */}
     <thead>
       <tr>
@@ -55,7 +55,10 @@ const ManageMyPost = () => {
       {/* row 1 */}
 
       {
-      posts.map(post=><MyNeedVolunteer post={post} key={post._id}></MyNeedVolunteer>)
+      posts.map(post=><MyNeedVolunteer
+        posts={posts}
+         setPosts={setPosts}
+        post={post} key={post._id}></MyNeedVolunteer>)
      }
      
     </tbody>
@@ -71,7 +74,7 @@ const ManageMyPost = () => {
     
     </TabPanel>
     <TabPanel>
-    <table className="table">
+    <table className="table mb-10">
     {/* head */}
     <thead>
       <tr>
@@ -87,7 +90,10 @@ const ManageMyPost = () => {
       {/* row 1 */}
 
       {
-      requests.map(request=><MyVolunteerRequest request={request} key={request._id}></MyVolunteerRequest>)
+      requests.map(request=><MyVolunteerRequest
+         requests={requests} 
+         setRequests={setRequests} 
+         request={request} key={request._id}></MyVolunteerRequest>)
     }
      
     </tbody>
