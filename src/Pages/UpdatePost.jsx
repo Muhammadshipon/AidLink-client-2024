@@ -65,7 +65,12 @@ const UpdatePost = () => {
 
 
   return (
-    <div onSubmit={handleUpdatePost} className="flex justify-center items-center" data-aos="fade-up" data-aos-duration="1000">
+    <div 
+    data-aos="fade-up"
+    data-aos-delay="50"
+   data-aos-duration="1000"
+    
+    onSubmit={handleUpdatePost} className="flex justify-center items-center" data-aos="fade-up" data-aos-duration="1000">
        <Helmet>
       <title>AidLink || Update</title>
       </Helmet>

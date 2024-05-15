@@ -47,7 +47,9 @@ const MyVolunteerRequest = ({request,requests,setRequests}) => {
 
 
   return (
-    <tr>
+    <tr   data-aos="fade-up"
+    data-aos-delay="500"
+   data-aos-duration="1000">
         
           <td>
             <div className="flex items-center gap-3">

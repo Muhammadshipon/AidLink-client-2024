@@ -3,6 +3,7 @@ import { Link, ScrollRestoration, useLocation, useNavigate } from "react-router-
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 
 const LogIn = () => {
@@ -48,6 +49,11 @@ const LogIn = () => {
         icon: "success"
       });
 
+      const user = result.user;
+      axios.post('http://localhost:9000/jwt',{email:user.email},{withCredentials:true})
+      .then(res=>console.log(res.data))
+
+
       navigate(location?.state? location.state : "/")
     })
     .catch(error=>{
@@ -71,6 +77,9 @@ const LogIn = () => {
         title: "Login Successfully",
         icon: "success"
       });
+      const user = result.user;
+      axios.post('http://localhost:9000/jwt',{email:user.email},{withCredentials:true})
+      .then(res=>console.log(res.data))
       navigate(location?.state? location.state : "/")
     })
     .catch(error=>{
@@ -91,6 +100,11 @@ const LogIn = () => {
       title: "Login Successfully",
       icon: "success"
     });
+
+    const user = result.user;
+      axios.post('http://localhost:9000/jwt',{email:user.email},{withCredentials:true})
+      .then(res=>console.log(res.data))
+
     navigate(location?.state? location.state : "/")
   })
   .catch(error=>{
@@ -110,7 +124,12 @@ const LogIn = () => {
  <Helmet>
       <title>AidLink || Login</title>
       </Helmet>
-      <div className="flex flex-col max-w-md p-6 rounded-3xl sm:p-10 shadow-xl border-2 border-gray-400 mt-20">
+      <div 
+      data-aos="zoom-in"
+      data-aos-delay="50"
+     data-aos-duration="1000"
+      
+      className="flex flex-col max-w-md p-6 rounded-3xl sm:p-10 shadow-xl border-2 border-gray-400 mt-20">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Log in</h1>
           <p className="text-sm">Log in to access your account</p>

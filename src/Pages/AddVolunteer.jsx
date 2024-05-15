@@ -64,6 +64,10 @@ const AddVolunteer = () => {
   
   return (
     <div className="flex justify-center items-center" 
+    data-aos="fade-up"
+    data-aos-delay="50"
+   data-aos-duration="1000"
+
     >
        <Helmet>
       <title>AidLink || Add Volunteer</title>

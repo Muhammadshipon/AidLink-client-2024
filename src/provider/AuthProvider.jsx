@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.config";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import axios from "axios";
 
 
 
@@ -42,6 +43,9 @@ const githubLogIn =()=>{
 
 const logOutUser =()=>{
   setLoading(true);
+  axios('http://localhost:9000/logout',{withCredentials:true})
+  .then(res=>console.log(res.data))
+
   return signOut(auth);
 }
 

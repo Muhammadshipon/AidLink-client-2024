@@ -5,10 +5,16 @@ const PostCard = ({post}) => {
   const {_id,thumbnail,postTitle,
     category,deadline} = post
   return (
-    <div className="max-w-xs rounded-md shadow-md ">
+    <div
+    
+    data-aos="fade-up"
+   
+         data-aos-duration="1000"
+    
+    className="max-w-xs rounded-md shadow-md ">
     <img src={thumbnail} alt="" className="object-cover object-center w-full rounded-t-md h-72" />
     <div className="flex flex-col justify-between p-6 space-y-8">
-      <div className="space-y-2">
+      <div className="space-y-2 min-h-[160px]">
         <h2 className="text-3xl font-semibold tracking-wide">{postTitle}</h2>
         <div className=" ">
         <p>{category}</p>

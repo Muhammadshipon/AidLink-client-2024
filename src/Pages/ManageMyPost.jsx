@@ -15,7 +15,7 @@ const ManageMyPost = () => {
 
   useEffect(()=>{
     const getData = async()=>{
-      const {data} = await axios(`http://localhost:9000/post?email=${user?.email}`)
+      const {data} = await axios(`http://localhost:9000/post?email=${user?.email}`,{withCredentials:true})
       setPosts(data);
     }
    getData();
@@ -24,7 +24,7 @@ const ManageMyPost = () => {
 
   useEffect(()=>{
     const getData = async()=>{
-      const {data} = await axios(`http://localhost:9000/request?email=${user?.email}`)
+      const {data} = await axios(`http://localhost:9000/request?email=${user?.email}`,{withCredentials:true})
       setRequests(data);
     }
    getData();

@@ -45,7 +45,11 @@ const ViewDetailsPost = () => {
     return navigate(`/be-a-volunteer/${id}`);
   }
   return (
-    <div className="bg-base-100" >
+    <div 
+    data-aos="fade-up"
+    data-aos-delay="50"
+   data-aos-duration="1000"
+    className="bg-base-100" >
        <Helmet>
       <title>AidLink || Details</title>
       </Helmet>

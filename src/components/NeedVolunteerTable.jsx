@@ -20,7 +20,9 @@ const NeedVolunteerTable = ({post}) => {
     return navigate(`/be-a-volunteer/${id}`);
   }
   return (
-    <tr>
+    <tr   data-aos="fade-up"
+    data-aos-delay="1000"
+   data-aos-duration="1000">
         
           <td>
             <div className="flex items-center gap-3">

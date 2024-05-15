@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, ScrollRestoration, useNavigate } from "react-router-dom";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const Register = () => {
   const {createUser} = useContext(AuthContext);
@@ -64,6 +65,11 @@ const Register = () => {
         icon: "success"
       });
 
+      const user = result.user;
+      axios.post('http://localhost:9000/jwt',{email:user.email},{withCredentials:true})
+      .then(res=>console.log(res.data))
+
+
       form.reset();
       navigate('/');
       
@@ -83,8 +89,12 @@ const Register = () => {
      <Helmet>
       <title>AidLink || Register</title>
       </Helmet>
-
-      <div  className="w-full  mb-14 max-w-md p-4 mt-10 rounded-3xl shadow-xl border-2 border-gray-400 sm:p-8 ">
+  <ScrollRestoration></ScrollRestoration>
+      <div 
+      data-aos="zoom-up"
+      data-aos-delay="50"
+     data-aos-duration="1000"
+      className="w-full  mb-14 max-w-md p-4 mt-10 rounded-3xl shadow-xl border-2 border-gray-400 sm:p-8 ">
 	<h2 className="mb-3 text-3xl font-semibold text-center ">Create your account</h2>
   <form onSubmit={handleRegister}  className="space-y-8 ">
 		<div className="space-y-4">

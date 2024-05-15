@@ -14,7 +14,7 @@ import { Helmet } from 'react-helmet-async';
 
 const NeedVolunteer = () => {
   const [posts,setPosts] = useState([]);
-  const [itemsPerPage,setItemPerPage] = useState(3);
+  const [itemsPerPage,setItemPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1)
   const [count, setCount] = useState(0)
   const [filter, setFilter] = useState('')
@@ -83,12 +83,20 @@ return(
      <Helmet>
       <title>AidLink || Need Volunteer</title>
       </Helmet>
-     <h1 className="text-4xl font-bold text-center my-10 text-yellow-400">All Need Volunteer Posts</h1>
+     <h1 
+     
+     data-aos="fade-up"
+     data-aos-delay="100"
+    data-aos-duration="1000"
+     
+     className="text-4xl font-bold text-center my-10 text-yellow-400">All Need Volunteer Posts</h1>
   <div>
     <div className='flex  flex-col md:flex-row justify-center items-center gap-5 '>
 
        {/* layout change button  */}
-       <div>
+       <div    data-aos="fade-right"
+          data-aos-delay="200"
+         data-aos-duration="1000">
    <ToggleButtonGroup
     
     value={view}
@@ -96,16 +104,18 @@ return(
     onChange={handleChange}
   >
    
-    <ToggleButton value="card" aria-label="module">
-      <ViewModuleIcon />
+    <ToggleButton  value="card" aria-label="module">
+      <span className='text-cyan-300'><ViewModuleIcon /></span>
     </ToggleButton>
     <ToggleButton value="table" aria-label="list">
-    <FormatAlignJustifyIcon/>
+    <span className='text-yellow-300'><FormatAlignJustifyIcon/></span>
     </ToggleButton>
   </ToggleButtonGroup>
    </div>
 
-       <div>
+       <div   data-aos="fade-right"
+          data-aos-delay="200"
+         data-aos-duration="1000">
         <select
           onChange={e => {
             setFilter(e.target.value)
@@ -124,7 +134,12 @@ return(
         </select>
       </div>
 
-      <form onSubmit={handleSearch}>
+      <form 
+       data-aos="fade-up"
+       data-aos-delay="300"
+      data-aos-duration="1000"
+      
+      onSubmit={handleSearch}>
         <div className='flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
           <input
             className='px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
@@ -141,7 +156,9 @@ return(
           </button>
         </div>
       </form>
-      <div>
+      <div    data-aos="fade-left"
+       data-aos-delay="200"
+      data-aos-duration="1000">
         <select
           onChange={e => {
             setSort(e.target.value)
@@ -157,23 +174,36 @@ return(
           <option value='asc'>Ascending Order</option>
         </select>
       </div>
-      <button onClick={handleReset} className='btn bg-orange-500 text-white'>
+     <div   data-aos="fade-left"
+       data-aos-delay="200"
+      data-aos-duration="1000">
+     <button 
+      
+      onClick={handleReset} className='btn bg-orange-500 text-white'>
         Reset
       </button>
+     </div>
     </div>
     
     
     {view ==='card'?
-      <div>
-         <div className="grid mx-auto mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 my-10">
+      <div >
+         <div 
+        data-aos="fade-up"
+        data-aos-delay="300"
+       data-aos-duration="1000"  
+         
+         className="grid mx-auto mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 my-10">
     {
       posts.map(post=><NeedVolunteerCard key={post._id} post={post}></NeedVolunteerCard>)
     }
   </div>
       </div>
       :
-      <div>
-         <table className="table mb-32 overflow-x-auto mt-10">
+      <div >
+         <table 
+        
+         className="table mb-32 overflow-x-auto mt-10">
   
   <thead>
     <tr>
@@ -209,7 +239,7 @@ return(
   </div>
 
   {/* Pagination Section */}
-  <div className='flex justify-center mt-12'>
+  <div   className='flex justify-center mt-12'>
     {/* Previous Button */}
     <button
       disabled={currentPage === 1}

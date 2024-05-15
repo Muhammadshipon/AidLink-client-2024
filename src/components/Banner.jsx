@@ -11,10 +11,12 @@ import './style.css'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 
 
-const Banner = () => {
+
+const Banner = ({onClick}) => {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
@@ -28,12 +30,30 @@ const Banner = () => {
 <div className=" rounded-[20px]"></div>
   <div className=" text-left text-neutral-content ">
   <div className="max-w-3xl relative top-28 text-center mx-auto ">
-      <h1    className="mb-5 text-2xl text-gray-100 md:text-6xl font-bold font-serif italic">WE TRY TO HELP PEOPLE WITH VOLUNTEERING</h1>
+      <h1   data-aos="fade-up"
+    
+    data-aos-delay="50"
+    data-aos-duration="1000"
+   className="mb-5 text-2xl text-gray-100 md:text-6xl font-bold font-serif italic">WE TRY TO HELP PEOPLE WITH VOLUNTEERING</h1>
       
-      <p  className="mb-5 text-yellow-200  font-bold md:text-2xl ">Try Our Programs And Help People For Their Needs</p>
+      <p data-aos="fade-in" data-aos-delay="50"  data-aos-duration="1000"   className="mb-5 text-yellow-200  font-bold md:text-2xl ">Try Our Programs And Help People For Their Needs</p>
       <div  className="flex flex-col md:flex-row gap-10 justify-center  ">
-      <button className="btn btn-outline font-bold border-2 max-w-[200px]  text-cyan-300 hover:bg-cyan-400 hover:text-white hover:scale-105 mr-5">Become A Volunteer</button>
-        <button className="btn text-white btn-accent max-w-[200px] bg-cyan-400 hover:scale-105">Our Programme</button>
+     <Link to={'/need-volunteer'}>
+     
+     <button  data-aos="fade-right"
+         data-aos-delay="50"
+         data-aos-duration="1000"
+       className="btn btn-outline font-bold border-2 max-w-[200px]  text-cyan-300 hover:bg-cyan-400 hover:text-white hover:scale-105 mr-5">Become A Volunteer</button>   
+     
+     
+     </Link>
+     
+      <button onClick={onClick}
+        data-aos="fade-left"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        className="btn text-white btn-accent max-w-[200px] bg-cyan-400 hover:scale-105">Our Programme</button>
+     
         
      
      
