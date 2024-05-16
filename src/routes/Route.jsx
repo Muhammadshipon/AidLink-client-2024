@@ -42,19 +42,19 @@ export const router = createBrowserRouter([
       {
         path:"/view-details-post/:id",
         element:<PrivateRoute><ViewDetailsPost></ViewDetailsPost></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:9000/posts/${params.id}`)
+        loader:({params})=>fetch(`https://aid-link-server.vercel.app/posts/${params.id}`)
       
       },
       {
         path:"/be-a-volunteer/:id",
         element:<PrivateRoute><BeAVolunteer></BeAVolunteer></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:9000/posts/${params.id}`)
+        loader:({params})=>fetch(`https://aid-link-server.vercel.app/posts/${params.id}`)
       
       },
       {
         path:"/update-post/:id",
         element:<PrivateRoute><UpdatePost></UpdatePost></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:9000/posts/${params.id}`)     
+        loader:({params})=>fetch(`https://aid-link-server.vercel.app/posts/${params.id}`)     
       },
       {
         path:'/manage-my-post',

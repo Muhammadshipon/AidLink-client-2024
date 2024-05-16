@@ -30,7 +30,7 @@ const BeAVolunteer = () => {
 
     try {
       const { data } = await axios.post(
-        `http://localhost:9000/request`,
+        `https://aid-link-server.vercel.app/request`,
         newRequest
       )
       console.log(data)
@@ -148,7 +148,7 @@ const BeAVolunteer = () => {
 
         </div>
         <div className=" my-5">
-          <input className="btn w-full bg-yellow-300 font-bold" type="submit" value="Request" />
+          <input  className="btn w-full bg-yellow-300 font-bold" type="submit" value="Request" />
 
         </div>
       </form>

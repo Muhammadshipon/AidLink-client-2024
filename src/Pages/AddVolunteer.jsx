@@ -41,7 +41,7 @@ const AddVolunteer = () => {
 
     try {
       const { data } = await axios.post(
-        `http://localhost:9000/posts`,
+        `https://aid-link-server.vercel.app/posts`,
         newPost
       )
       console.log(data)

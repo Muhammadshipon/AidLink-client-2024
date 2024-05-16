@@ -50,7 +50,7 @@ const LogIn = () => {
       });
 
       const user = result.user;
-      axios.post('http://localhost:9000/jwt',{email:user.email},{withCredentials:true})
+      axios.post('https://aid-link-server.vercel.app/jwt',{email:user.email},{withCredentials:true})
       .then(res=>console.log(res.data))
 
 
@@ -78,7 +78,7 @@ const LogIn = () => {
         icon: "success"
       });
       const user = result.user;
-      axios.post('http://localhost:9000/jwt',{email:user.email},{withCredentials:true})
+      axios.post('https://aid-link-server.vercel.app/jwt',{email:user.email},{withCredentials:true})
       .then(res=>console.log(res.data))
       navigate(location?.state? location.state : "/")
     })
@@ -102,7 +102,7 @@ const LogIn = () => {
     });
 
     const user = result.user;
-      axios.post('http://localhost:9000/jwt',{email:user.email},{withCredentials:true})
+      axios.post('https://aid-link-server.vercel.app/jwt',{email:user.email},{withCredentials:true})
       .then(res=>console.log(res.data))
 
     navigate(location?.state? location.state : "/")

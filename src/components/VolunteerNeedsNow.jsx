@@ -7,7 +7,7 @@ const VolunteerNeedsNow = () => {
   const [posts,setPost] = useState([]);
   useEffect(()=>{
     const getData = async()=>{
-      const {data} = await axios('http://localhost:9000/posts')
+      const {data} = await axios('https://aid-link-server.vercel.app/posts')
       setPost(data);
     }
    getData();

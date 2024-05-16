@@ -9,13 +9,13 @@ const NeedVolunteerCard = ({post}) => {
   const {user} = useContext(AuthContext);
   const [requests,setRequests] =useState([]); 
   const navigate = useNavigate();
-  const {_id,thumbnail,postTitle,
+  const {_id,thumbnail,postTitle, ownerEmail,
     category,deadline,numOfVolunteerNeeded} = post;
 
 
     useEffect(()=>{
       const getData = async()=>{
-        const {data} = await axios(`http://localhost:9000/request?email=${user?.email}`)
+        const {data} = await axios(`https://aid-link-server.vercel.app/request?email=${user?.email}`)
         setRequests(data);
       }
      getData();
@@ -24,7 +24,13 @@ const NeedVolunteerCard = ({post}) => {
 
 
     const handleBeAVolunteer=id=>{
-
+      if(ownerEmail===user?.email){
+        return  Swal.fire({
+          title: "Not Exist",
+          text: "You can not request your own post",
+          icon: "error"
+        });
+      }
       
       if(numOfVolunteerNeeded===0){
         return  Swal.fire({
@@ -64,7 +70,7 @@ const NeedVolunteerCard = ({post}) => {
    <Link to={`/view-details-post/${_id}`}>
    <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-cyan-400 text-gray-900 text-gray-900 text-gray-900 text-gray-900 hover:bg-cyan-600">View Details</button>
    </Link>
-   <button onClick={()=>handleBeAVolunteer(_id)} type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-orange-400 text-gray-900 text-gray-900 text-gray-900 text-gray-900 hover:bg-cyan-600">Be A Volunteer</button>
+   <button  disabled={ownerEmail===user?.email}  onClick={()=>handleBeAVolunteer(_id)} type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-orange-400 text-gray-900 text-gray-900 text-gray-900 text-gray-900 hover:bg-cyan-600">Be A Volunteer</button>
     </div>
   </div>
   );

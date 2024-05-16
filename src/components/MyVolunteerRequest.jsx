@@ -22,7 +22,7 @@ const MyVolunteerRequest = ({request,requests,setRequests}) => {
       }).then((result) => {
         if (result.isConfirmed) {
          
-     axios.delete(`http://localhost:9000/request/${_id}`)
+     axios.delete(`https://aid-link-server.vercel.app/request/${_id}`)
      .then(data=>{
       console.log(data.data);
       if(data.data.deletedCount>0){

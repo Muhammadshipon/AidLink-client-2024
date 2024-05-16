@@ -42,7 +42,7 @@ const UpdatePost = () => {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:9000/posts/${_id}`,
+        `https://aid-link-server.vercel.app/posts/${_id}`,
         updatedPost
       )
       console.log(data)

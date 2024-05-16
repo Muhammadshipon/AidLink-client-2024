@@ -15,7 +15,7 @@ const ManageMyPost = () => {
 
   useEffect(()=>{
     const getData = async()=>{
-      const {data} = await axios(`http://localhost:9000/post?email=${user?.email}`,{withCredentials:true})
+      const {data} = await axios(`https://aid-link-server.vercel.app/post?email=${user?.email}`,{withCredentials:true})
       setPosts(data);
     }
    getData();
@@ -24,7 +24,7 @@ const ManageMyPost = () => {
 
   useEffect(()=>{
     const getData = async()=>{
-      const {data} = await axios(`http://localhost:9000/request?email=${user?.email}`,{withCredentials:true})
+      const {data} = await axios(`https://aid-link-server.vercel.app/request?email=${user?.email}`,{withCredentials:true})
       setRequests(data);
     }
    getData();

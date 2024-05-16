@@ -27,7 +27,7 @@ const NeedVolunteer = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(
-        `http://localhost:9000/all-post?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}&search=${search}`
+        `https://aid-link-server.vercel.app/all-post?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}&search=${search}`
       )
       setPosts(data)
     }
@@ -37,7 +37,7 @@ const NeedVolunteer = () => {
   useEffect(() => {
     const getCount = async () => {
       const { data } = await axios.get(
-        `http://localhost:9000/posts-count?filter=${filter}&search=${search}`
+        `https://aid-link-server.vercel.app/posts-count?filter=${filter}&search=${search}`
       )
 
       setCount(data.count)

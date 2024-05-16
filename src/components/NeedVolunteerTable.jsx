@@ -1,11 +1,14 @@
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const NeedVolunteerTable = ({post}) => {
   const navigate = useNavigate();
+  const {user} = useContext(AuthContext);
   const {_id,thumbnail,postTitle,location,
-    category,deadline,numOfVolunteerNeeded
+    category,deadline,numOfVolunteerNeeded,ownerEmail
   } = post;
     
   const handleBeAVolunteer=id=>{
@@ -17,11 +20,20 @@ const NeedVolunteerTable = ({post}) => {
       });
     
     }
+
+    if(ownerEmail===user?.email){
+      return  Swal.fire({
+        title: "Not Exist",
+          text: "You can not request your own post",
+          icon: "error"
+      });
+    
+    }
     return navigate(`/be-a-volunteer/${id}`);
   }
   return (
     <tr   data-aos="fade-up"
-    data-aos-delay="1000"
+    data-aos-delay="200"
    data-aos-duration="1000">
         
           <td>
@@ -53,7 +65,7 @@ const NeedVolunteerTable = ({post}) => {
           </th>
           <th>
           
-          <button onClick={()=>handleBeAVolunteer(_id)}  className="btn bg-cyan-500 text-white" >Be A Volunteer</button>
+          <button disabled={ownerEmail===user?.email} onClick={()=>handleBeAVolunteer(_id)}  className="btn bg-cyan-500 text-white" >Be A Volunteer</button>
           </th>
          
         </tr>
