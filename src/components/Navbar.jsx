@@ -40,6 +40,9 @@ const Navbar = () => {
   }>Home</NavLink>   
   <NavLink className={({ isActive}) =>isActive ? "text-cyan-600" : "text-cyan-400"
   } to={'/need-volunteer'}>Need Volunteer</NavLink> 
+
+  <NavLink className={({ isActive}) =>isActive ? "text-cyan-600" : "text-cyan-400"
+  } to={'/donate'}>Donate</NavLink> 
   </div>
 
 
@@ -76,6 +79,7 @@ const Navbar = () => {
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52 z-50">
         <li><Link to={'/add-volunteer-post'}>Add Volunteer Post</Link></li>
         <li><Link to={'/manage-my-post'}>Manage My Post</Link></li>
+        <li><Link to={'/my-donation'}>My Donation</Link></li>
         <li><Link  onClick={handleLogOut} to={"/"}>Logout</Link></li>
 
        

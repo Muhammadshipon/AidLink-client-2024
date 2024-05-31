@@ -37,7 +37,9 @@ const Banner = ({onClick}) => {
    className="mb-5 text-2xl text-gray-100 md:text-6xl font-bold font-serif italic">WE TRY TO HELP PEOPLE WITH VOLUNTEERING</h1>
       
       <p data-aos="fade-in" data-aos-delay="50"  data-aos-duration="1000"   className="mb-5 text-yellow-200  font-bold md:text-2xl ">Try Our Programs And Help People For Their Needs</p>
-      <div  className="flex flex-col md:flex-row gap-10 justify-center  ">
+      <div  className="flex flex-col md:flex-row gap-10 justify-center items-center ">
+
+
      <Link to={'/need-volunteer'}>
      
      <button  data-aos="fade-right"

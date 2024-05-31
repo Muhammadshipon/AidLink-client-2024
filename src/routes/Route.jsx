@@ -11,6 +11,9 @@ import ViewDetailsPost from "../Pages/ViewDetailsPost";
 import BeAVolunteer from "../Pages/BeAVolunteer";
 import ManageMyPost from "../Pages/ManageMyPost";
 import UpdatePost from "../Pages/UpdatePost";
+import Donate from "../Pages/Donate";
+import DonationPayment from "../components/DonationPayment";
+import MyDonation from "../Pages/MyDonation";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +29,18 @@ export const router = createBrowserRouter([
         path:'/need-volunteer',
         element:<NeedVolunteer></NeedVolunteer>
         
+      },
+      {
+        path:'/donate',
+        element:<PrivateRoute><Donate></Donate></PrivateRoute>
+      },
+      {
+        path:'/donation-payment',
+        element:<PrivateRoute><DonationPayment></DonationPayment></PrivateRoute>
+      },
+      {
+        path:'/my-donation',
+        element:<PrivateRoute><MyDonation></MyDonation></PrivateRoute>
       },
       {
         path:'/login',
